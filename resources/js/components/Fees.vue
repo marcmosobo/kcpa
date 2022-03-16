@@ -11,7 +11,7 @@
       <label>Amount</label>
     </div>
     <div class="form-group" style="margin-left: 3px;">
-      <input type="text" class="form-control form-control-sm" readonly="readonly" name="amount">
+      <input type="text" class="form-control form-control-sm" readonly="readonly" id="amount" value="" name="amount">
     </div>
   </div>
 </div>  
@@ -28,15 +28,16 @@ export default {
     methods: {
         handleClick(){
             var checkboxes = document.getElementsByName("fee");  
-            var total = 0;  
+            var total = 0; 
             for(var i = 0; i < checkboxes.length; i++)  
             {  
                 if(checkboxes[i].checked)  
                     total += parseFloat(checkboxes[i].value);
-                    document.getElementsByName("amount").value = total;
-  
+
             }  
-              alert("Your total is !" + total); 
+              document.getElementById("amount").setAttribute("value", total);
+
+            //   alert("Your total is !" + total); 
                
 
         },

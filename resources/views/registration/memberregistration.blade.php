@@ -104,18 +104,17 @@
     <label><strong>Expected Amount on registration</strong></label>
     <ol>
       <fees-component></fees-component>
-      <li><input type="hidden" id="amountsettings" name="registrationfee" value="{{$Amount}}">Registration Fee  KES. <strong>{{$Amount}}</strong></li>
     </ol>
   </div>
   <hr>
-  <div class="form-row justify-content-center">
+  <!-- <div class="form-row justify-content-center">
     <div class="form-group">
       <label>Amount</label>
     </div>
     <div class="form-group" style="margin-left: 3px;">
       <input type="number" class="form-control form-control-sm" value="{{$Amount}}" name="amount">
     </div>
-  </div>
+  </div> -->
   <div class ="panel-heading text-right"><h1></h1>
     <div class='text-center panel-footer align-itemes-end'>
       <input class="btn btn-primary" type="submit" value = "Save"></input>

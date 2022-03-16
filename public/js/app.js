@@ -4191,10 +4191,9 @@ __webpack_require__.r(__webpack_exports__);
 
       for (var i = 0; i < checkboxes.length; i++) {
         if (checkboxes[i].checked) total += parseFloat(checkboxes[i].value);
-        document.getElementsByName("amount").value = total;
       }
 
-      alert("Your total is !" + total);
+      document.getElementById("amount").setAttribute("value", total); //   alert("Your total is !" + total); 
     },
     loadFees: function loadFees() {
       var _this = this;
@@ -43592,7 +43591,13 @@ var staticRenderFns = [
         [
           _c("input", {
             staticClass: "form-control form-control-sm",
-            attrs: { type: "text", readonly: "readonly", name: "amount" },
+            attrs: {
+              type: "text",
+              readonly: "readonly",
+              id: "amount",
+              value: "",
+              name: "amount",
+            },
           }),
         ]
       ),
