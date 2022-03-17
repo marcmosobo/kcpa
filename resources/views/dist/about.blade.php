@@ -82,7 +82,7 @@
 
 						</ol>
 							<section>
-							<settings-component></settings-component>
+							<about-component></about-component>
 							</section>
 						
 						

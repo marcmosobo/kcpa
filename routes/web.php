@@ -15,7 +15,8 @@ use App\Http\Controllers\admindass;
 use App\Mail\BacancyMail;
 use App\Http\Controllers\registrationupdateController;
 use App\Http\Controllers\API\MPESAResponsesController;
-
+use App\Models\Team;
+use App\Models\About;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,7 +57,10 @@ return "Cleared!";
 	Route::get('/reg',[PagesController::class, 'register'])->middleware(['web']);
 	Route::get('/monthly', function () {return view('registration/monthly');})->middleware(['web']);
 	Route::get('/welfar', function () {	return view('registration/welfare');})->middleware(['web']);
-	Route::get('/', function () {return view('web/index');});
+	Route::get('/', function () {
+		$about = About::latest()->take(1)->get();
+		$team = Team::latest()->take(4)->get();
+		return view('web/index',compact('team','about'));});
 	Route::get('/index', function () {return view('web/index');});
 	Route::get('/butere', function () {return view('web/butere');});
 	Route::get('/central', function () {return view('web/central');});
@@ -72,7 +76,7 @@ return "Cleared!";
 	Route::get('/shinyalu', function () {return view('web/shinyalu');});
 	Route::get('/matete', function () {return view('web/matete');});
 	Route::get('/main', function () {return view('web/pages/county');});
-	Route::get('/', function(){return view('web/index');})->middleware(['web']);
+	// Route::get('/', function(){return view('web/index');})->middleware(['web']);
 	Route::post('/registermember', [Members::class,'registermember'])->middleware(['web']);
 	Route::get('/searchuser/{id}', [Members::class,'show'])->middleware(['web']);
 	Route::get('/membershipform', [Members::class,'index'])->middleware(['web']);
@@ -118,6 +122,10 @@ require __DIR__.'/api.php';
 Route::group(['middleware'=>['auth']], function(){
 	Route::get('/admin',[PagesController::class, 'admin']);
 	Route::get('/dashboard',[PagesController::class, 'admin']);
+	//marcus added routes
+	Route::get('/team',[PagesController::class, 'team']);
+	Route::get('/about',[PagesController::class, 'about']);
+	//end of marcus added routes
 	Route::get('/settings',[settings::class, 'settings']);
 	Route::post('/settingamount',[settings::class, 'settingamount']);
 	Route::get('/adminwelfare',[PagesController::class, 'welfare']);

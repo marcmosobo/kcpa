@@ -2,7 +2,7 @@
 <div class="container">
     <fieldset>
     <div v-for="item of fees.data" v-bind:key="item.id">
-    <input type="checkbox" name="fee" v-bind:value="item.amount" @click="handleClick()"> {{item.name}} KES. <strong>{{item.amount}}</strong><br>
+    <input type="checkbox" name="fee" v-bind:value="item.name" @click="handleClick()"> {{item.name}} KES. <strong>{{item.amount}}</strong><br>
     </div>
     </fieldset>
       <hr>

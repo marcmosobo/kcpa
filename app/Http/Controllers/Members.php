@@ -229,6 +229,8 @@ class Members extends Controller
        $post->Village =  $request->Village;
        $post->DOB =  $request->dob;
        $post->Email =  $request->email;
+       $post->Fee = $request->amount;
+       $post->Total = $request->amount;
        $post->save();
         $phone = $request->phone;
         $amount = (int)$request->amount;

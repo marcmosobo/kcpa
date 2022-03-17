@@ -82,7 +82,7 @@
 
 						</ol>
 							<section>
-							<settings-component></settings-component>
+							<team-component></team-component>
 							</section>
 						
 						

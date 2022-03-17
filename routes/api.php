@@ -6,6 +6,8 @@ use App\Http\Controllers\API\Mpesapayment;
 use App\Http\Controllers\API\MPESAResponsesController;
 use App\Http\Controllers\API\AmountSettingController;
 use App\Http\Controllers\API\FeeController;
+use App\Http\Controllers\API\AboutController;
+use App\Http\Controllers\API\TeamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +32,7 @@ Route::post('validate',[MPESAResponsesController::class,'validation']);
 Route::post('confirm', [MPESAResponsesController::class,'stkPush']);
 Route::apiResources([
     'amountsetting' => AmountSettingController::class,
-    'fee' => FeeController::class
+    'fee' => FeeController::class,
+    'about' => AboutController::class,
+    'team' => TeamController::class
 ]);

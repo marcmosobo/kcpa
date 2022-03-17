@@ -201,6 +201,7 @@
 </section> 
 
 <section class="wt-section bg-light" id="about">
+  @if(count($about) == 0)
   <div class="container">
     <div class="row justify-content-md-center text-center pb-lg-4 mb-lg-5 mb-4">
       <div class="col-md-8 text-center w-md-50 mx-auto mb-0">
@@ -220,6 +221,28 @@
       
     </div>
   </div>
+  @else
+  <div class="container">
+    <div class="row justify-content-md-center text-center pb-lg-4 mb-lg-5 mb-4">
+      <div class="col-md-8 text-center w-md-50 mx-auto mb-0">
+        <h2 class="mb-md-2">About Us</h2>
+        <p class="lead text-muted">Faith and Action International is an international NGO locally registered in Kenya on 30th April 2020.</p>
+
+      </div>
+    </div>
+    <div class="row justify-content-between align-items-center" data-aos="fade-right" data-aos-easing="linear" data-aos-delay="100">
+      <div class="col-md-5">
+        <img src="img/portfolio/v4.jpg" width="90%" class="rounded-md" alt="">
+      </div>
+      <div class="col-md-7">  
+        @foreach($about as $abot)      
+        <p>{!! nl2br(e($abot->details)) !!}</p>
+        @endforeach
+      </div>
+      
+    </div>
+  </div>
+  @endif
 </section> 
 
 <!-- <section class="wt-section">
@@ -358,6 +381,7 @@
   </div>
 </div>
 <section class="bg-light wt-section" id="team">
+@if(count($team) == 0)
   <div class="container"> 
     <div class="row justify-content-md-center text-center mb-lg-5 mb-4 pb-lg-5">
       <div class="col-md-12">
@@ -490,8 +514,54 @@
           </div> 
         </figure> 
       </div>
-    </div> 
+    </div>
   </div>
+@else  
+<div class="container"> 
+    <div class="row justify-content-md-center text-center mb-lg-5 mb-4 pb-lg-5">
+      <div class="col-md-12">
+        <h2 class="h1">Our Team</h2>
+        <p>We have a well-defined governance structure that has promoted sound stewardship and accountability with separation of financial management from pastoral ministry.</p>
+      </div>
+    </div>
+    <div class="row">
+      @foreach($team as $tim)
+      <div class="col-lg-3 col-sm-6 mb-5"> 
+        <figure data-aos="fade-up" data-aos-easing="linear" data-aos-delay="100">
+          @if($tim->image)
+          <img class="w-100 rounded-top" src="{{asset('uploads/'.$tim->image)}}" alt="Image Description"> 
+          @endif
+          <div class="wt-box-shadow-sm bg-white text-center rounded p-4">
+            <div class="mb-3">
+              <h5 class="mb-1">{{$tim->first_name}} {{$tim->last_name}}</h5>
+              <small class="d-block font-style-normal text-uppercase text-primary wt-letter-spacing-xs">{{$tim->position}}</small>
+            </div>
+            <div class="team-dp">
+              <ul>
+                <li class="list-inline-item mx-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
+                  <a class="text-primary" target="_blank" href="https://www.facebook.com">
+                    <i class="fab fa-facebook"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item mx-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Instagram">
+                  <a class="text-primary" target="_blank" href="https://www.instagram.com">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item mx-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
+                  <a class="text-primary" target="_blank" href="https://twitter.com">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li> 
+              </ul>
+            </div>
+          </div> 
+        </figure> 
+      </div>
+  @endforeach
+    </div>
+  </div>
+@endif 
 </section>
 
 </main>

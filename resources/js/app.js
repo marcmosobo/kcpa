@@ -35,6 +35,8 @@ window.toast = toast;
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('settings-component', require('./components/Settings.vue').default);
 Vue.component('fees-component', require('./components/Fees.vue').default);
+Vue.component('about-component', require('./components/About.vue').default);
+Vue.component('team-component', require('./components/Team.vue').default);
 
 // Initialize Vue
 const app = new Vue({

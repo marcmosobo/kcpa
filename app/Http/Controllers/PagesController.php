@@ -13,6 +13,14 @@ class PagesController extends Controller
         
         return view('dist/main');
     }
+
+    public function team(){
+        return view('dist/team');
+    }
+
+    public function about(){
+        return view('dist/about');
+    }
     
     function payment(){
         $datas = DB::table('members_account')->join('members','RegNo','=','members.id')->join('lnmo_api_response','PAYID','=','lnmo_api_response.id')->get();
