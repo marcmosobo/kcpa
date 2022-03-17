@@ -11,7 +11,7 @@
       <option  value="3">Busia</option>
       <option  value="4">Vihiga</option>
       <option  value="5">Trans-Nzoia</option>
-    </select> 
+    </select>
   </div>
   <div class="form-group">
     <label for=" subcounty">Sub_County</label>
@@ -32,7 +32,7 @@
       @foreach($ward as $ward)
       <option id="{{$ID}}" value="{{$ID}}">{{$Ward_name}}</option>
       @endforeach
-      @endif  
+      @endif
     </select>
   </div>
   <div class="form-group">
@@ -42,7 +42,7 @@
       @foreach($Location as $Location)
       <option id="{{$ID}}" value="{{$ID}}">{{$Location}}</option>
       @endforeach
-      @endif  
+      @endif
     </select>
   </div>
   <div class="form-group">
@@ -52,40 +52,40 @@
       @foreach($sub_location as $sub_location)
       <option id="{{$ID}}" value="{{$ID}}">{{$sub_location}}</option>
       @endforeach
-      @endif 
+      @endif
     </select>
   </div>
   <div class="form-group">
     <label for=" Village">Village</label>
-    <input type="Village" class="form-control form-control-sm" id="Village" name ="Village"/> 
-  </div> 
+    <input type="Village" class="form-control form-control-sm" id="Village" name ="Village"/>
+  </div>
   <div class="form-group">
     <label for=" church">Church</label>
-    <input type="church" class="form-control form-control-sm" id="church" name ="church"/> 
+    <input type="church" class="form-control form-control-sm" id="church" name ="church"/>
   </div>
   <div class="form-group">
     <label for=" First_name">First Name</label>
-    <input type="text" class="form-control form-control-sm" name = "First_name" id="First_name"/> 
+    <input type="text" class="form-control form-control-sm" name = "First_name" id="First_name"/>
   </div>
   <div class="form-group">
     <label for=" Middle_card">Middle Name</label>
-    <input type="text" class="form-control form-control-sm" name ="Middle_card" id="Middle_card"/> 
+    <input type="text" class="form-control form-control-sm" name ="Middle_card" id="Middle_card"/>
   </div>
   <div class="form-group">
     <label for=" Last_name">Last Name</label>
-    <input type="text" class="form-control form-control-sm" name ="Last_name" id="Last_name"/> 
+    <input type="text" class="form-control form-control-sm" name ="Last_name" id="Last_name"/>
   </div>
   <div class="form-group">
     <label for="idnumber">ID number</label>
-    <input type="text" class="form-control form-control-sm" name = "id"  id="id"/> 
+    <input type="text" class="form-control form-control-sm" name = "id"  id="id"/>
   </div>
   <div class="form-group">
     <label for="dob">Date of Birth</label>
-    <input type="date" class="form-control form-control-sm" name = "dob"  id="dob"/> 
+    <input type="date" class="form-control form-control-sm" name = "dob"  id="dob"/>
   </div>
 
   <div class="form-group">
-    <label for="Gender">Gender</label>       
+    <label for="Gender">Gender</label>
     <select class="form-control form-control-sm" id = "gender" name = "gender">
       <option name ="Male">Male</option>
       <option name ="Female">Female</option>
@@ -93,11 +93,11 @@
   </div>
   <div class="form-group">
     <label for="phone">Phone number</label>
-    <input type="text"class="form-control form-control-sm" name = "phone" id="phone"/> 
+    <input type="text"class="form-control form-control-sm" name = "phone" id="phone"/>
   </div>
   <div class="form-group">
     <label for="email">Email</label>
-    <input type="email"class="form-control form-control-sm" name ="email"  id="email"/> 
+    <input type="email"class="form-control form-control-sm" name ="email"  id="email"/>
   </div>
   <hr>
   <div class="form-group">
@@ -111,16 +111,14 @@
     <div class="form-group">
       <!-- <label class="display:none;">Amount</label> -->
     </div>
-    <div class="form-group" style="margin-left: 3px; display:none;">
-      <input type="number" class="form-control form-control-sm" :value="bladeValue" name="amount" id="amount">
-    </div>
+
   </div>
   <div class ="panel-heading text-right"><h1></h1>
     <div class='text-center panel-footer align-itemes-end'>
       <input class="btn btn-primary" type="submit" value = "Save"></input>
     </div>
   </div>
-</div>  
+</div>
 </form>
 <script src="{{ mix('/js/app.js') }}"></script>
 <script type ="text/javascript">
@@ -154,7 +152,7 @@
               confirmButtonText: `OK`,
               denyButtonText: `Don't save`,
             })
-      } 
+      }
     });
           }
         })
@@ -170,7 +168,7 @@
     url: '/ward/'+x,
     success:function(response){
       $('#ward').html(response);
-      
+
     }
   });
 
@@ -212,7 +210,7 @@
 
 });
  $("#amember").change(function(e){
-  $("#formhere").load('welfar');    
+  $("#formhere").load('welfar');
 });
 </script>
 

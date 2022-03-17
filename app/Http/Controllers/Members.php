@@ -57,11 +57,12 @@ class Members extends Controller
         $phone   = substr($phone, 0, 1) == '7' ? '254'.$phone : $phone ;
         $phone = strlen($phone) ==12 ? $phone : 'Phone Length is invalid';
         $phone = is_numeric($phone) ? $phone :  'Phone must be numbers';
+
         $expressResponse=Mpesa::express((int) $amount,$phone,$id,'NGO PAYMENT');
        $ex = json_decode($expressResponse, true);
 
        if(array_key_exists('errorCode', $ex)) {
-            return  $ex['errorMessage'];            
+            return  $ex['errorMessage'];
         }
         else {
             $post = new stkpush;
@@ -85,7 +86,7 @@ class Members extends Controller
        $ex = json_decode($expressResponse, true);
 
        if(array_key_exists('errorCode', $ex)) {
-            return  $ex['errorMessage'];            
+            return  $ex['errorMessage'];
         }
         else {
             $post = new stkpush;
@@ -94,9 +95,9 @@ class Members extends Controller
        $post->response_code         =       $ex['ResponseCode'];
        $post->customer_message      =       $ex['ResponseDescription'];
        $post->save();
-       
+
         }
-        if (memberSubscription::where('ID_Number', '=', $request->id)->exists()) 
+        if (memberSubscription::where('ID_Number', '=', $request->id)->exists())
             {
                 return mpesa($amount,$phone,$request->idnumber);
             }
@@ -108,10 +109,10 @@ class Members extends Controller
             $post->phone        =   $request->phone;
             $post->save();
             return  'Your details have been saved. approve payment with your pin to complte registration';
-        
+
     }
     public function welfareformsub(Request $request){
-        
+
         $phone = $request->phone;
         $amount =(int) $request->amount;
         $phone   = str_starts_with($phone, '+') ? ltrim($phone, '+') : $phone;
@@ -123,7 +124,7 @@ class Members extends Controller
        $ex = json_decode($expressResponse, true);
 
        if(array_key_exists('errorCode', $ex)) {
-            return  $ex['errorMessage'];            
+            return  $ex['errorMessage'];
         }
         else {
             $post = new stkpush;
@@ -132,9 +133,9 @@ class Members extends Controller
        $post->response_code         =       $ex['ResponseCode'];
        $post->customer_message      =       $ex['ResponseDescription'];
        $post->save();
-       
+
         }
-        if (welfareSubscription::where('ID_Number', '=', $request->id)->exists()) 
+        if (welfareSubscription::where('ID_Number', '=', $request->id)->exists())
             {
                 return mpesa($amount,$phone,$request->idnumber);
             }
@@ -148,7 +149,7 @@ class Members extends Controller
             return  'Your details have been saved. approve payment with your pin to complte registration';
     }
     public function welfareregistration(Request $request){
-        
+
         $phone = $request->phone;
         $amount =(int) $request->amount;
         $phone   = str_starts_with($phone, '+') ? ltrim($phone, '+') : $phone;
@@ -160,7 +161,7 @@ class Members extends Controller
        $ex = json_decode($expressResponse, true);
 
        if(array_key_exists('errorCode', $ex)) {
-            return  $ex['errorMessage'];            
+            return  $ex['errorMessage'];
         }
         else {
             $post = new stkpush;
@@ -169,9 +170,9 @@ class Members extends Controller
        $post->response_code         =       $ex['ResponseCode'];
        $post->customer_message      =       $ex['ResponseDescription'];
        $post->save();
-       
+
         }
-        if (welfareRegistration::where('ID_Number', '=', $request->id)->exists()) 
+        if (welfareRegistration::where('ID_Number', '=', $request->id)->exists())
             {
                 return mpesa($amount,$phone,$request->idnumber);
             }
@@ -224,7 +225,7 @@ class Members extends Controller
        $post->Sub_county= $request->subcounty;
        $post->Ward = $request->ward;
        $post->Location = $request->location;
-       $post->Sub_location = $request->sublocation;        
+       $post->Sub_location = $request->sublocation;
        $post->Village =  $request->Village;
        $post->DOB =  $request->dob;
        $post->Email =  $request->email;
@@ -237,7 +238,7 @@ class Members extends Controller
         $phone   = substr($phone, 0, 1) == '7' ? '254'.$phone : $phone ;
         $phone = strlen($phone) ==12 ? $phone : 'Phone Length is invalid';
         $phone = is_numeric($phone) ? $phone : 'Phone must be numbers';
-        
+
 
 
        $expressResponse=Mpesa::express((int) $amount,$phone,$request->id,'Testing Payment');
@@ -251,7 +252,7 @@ class Members extends Controller
        $post->customer_message      =       $ex['errorMessage'];
        $post->save();
             return  $ex['errorMessage'];
-            
+
         }
         else {
             $post = new stkpush;
@@ -262,7 +263,7 @@ class Members extends Controller
        $post->save();
        return  'Your details have been saved. approve payment with your pin to complte registration';
         }
-       
+
 
        Session::flash('success','Saved Succesfully');
        return redirect('/');
