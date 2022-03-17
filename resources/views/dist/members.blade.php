@@ -29,9 +29,9 @@
                     <th style="width: 10%;"><span style="white-space: nowrap; margin-left: 2px; margin-right: 2px; padding: 3px;">County</span></th>
                     <th style="width: 16%;"><span style="white-space: nowrap; margin-left: 2px; margin-right: 2px; padding: 3px;">Sub_County</span></th>
                     <th style="width: 17%;"><span style="white-space: nowrap; margin-left: 2px; margin-right: 2px; padding: 3px;">Ward</span></th>
-                    <th style="width: 17%;"><span style="white-space: nowrap; margin-left: 2px; margin-right: 2px; padding: 3px;">Expected</span></th>
+                    <!-- <th style="width: 17%;"><span style="white-space: nowrap; margin-left: 2px; margin-right: 2px; padding: 3px;">Fee</span></th> -->
                     <th style="width: 17%;"><span style="white-space: nowrap; margin-left: 2px; margin-right: 2px; padding: 3px;">Paid</span></th>
-                    <th style="width: 17%;"><span style="white-space: nowrap; margin-left: 2px; margin-right: 2px; padding: 3px;">Ballance</span></th>                    
+                    <!-- <th style="width: 17%;"><span style="white-space: nowrap; margin-left: 2px; margin-right: 2px; padding: 3px;">Ballance</span></th>                     -->
                 </tr>
             </thead>
             <tbody>
@@ -44,9 +44,9 @@
                     <td><span style="white-space: nowrap; margin-left: 2px; margin-right: 2px; padding: 3px;">{{$member['County']}}</span></td>
                     <td><span style="white-space: nowrap; margin-left: 2px; margin-right: 2px; padding: 3px;">{{$member['sub_county']}}</span></td>
                     <td><span style="white-space: nowrap; margin-left: 2px; margin-right: 2px; padding: 3px;">{{$member['Ward']}}</span></td>
+                    <!-- <td><span style="white-space: nowrap; margin-left: 2px; margin-right: 2px; padding: 3px;">100</span></td> -->
                     <td><span style="white-space: nowrap; margin-left: 2px; margin-right: 2px; padding: 3px;">100</span></td>
-                    <td><span style="white-space: nowrap; margin-left: 2px; margin-right: 2px; padding: 3px;">100</span></td>
-                    <td><span style="white-space: nowrap; margin-left: 2px; margin-right: 2px; padding: 3px;">100</span></td>
+                    <!-- <td><span style="white-space: nowrap; margin-left: 2px; margin-right: 2px; padding: 3px;">100</span></td> -->
                     </tr>
                     @endforeach
                 </tbody>
