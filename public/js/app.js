@@ -4181,8 +4181,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      fees: {}
+      fees: {},
+      amount: ''
     };
+  },
+  watch: {
+    amount: function amount(val) {
+      this.$root.bladeValue = val;
+    }
   },
   methods: {
     handleClick: function handleClick() {
@@ -4483,7 +4489,12 @@ Vue.component('settings-component', (__webpack_require__(/*! ./components/Settin
 Vue.component('fees-component', (__webpack_require__(/*! ./components/Fees.vue */ "./resources/js/components/Fees.vue")["default"])); // Initialize Vue
 
 var app = new Vue({
-  el: '#layoutSidenav'
+  el: '#layoutSidenav',
+  data: function data() {
+    return {
+      bladeValue: ''
+    };
+  }
 });
 
 /***/ }),
@@ -43572,24 +43583,22 @@ var render = function () {
     _vm._v(" "),
     _c("hr"),
     _vm._v(" "),
-    _vm._m(0),
-  ])
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-row justify-content-center" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", [_vm._v("Amount")]),
-      ]),
+    _c("div", { staticClass: "form-row justify-content-center" }, [
+      _vm._m(0),
       _vm._v(" "),
       _c(
         "div",
         { staticClass: "form-group", staticStyle: { "margin-left": "3px" } },
         [
           _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.amount,
+                expression: "amount",
+              },
+            ],
             staticClass: "form-control form-control-sm",
             attrs: {
               type: "text",
@@ -43598,9 +43607,28 @@ var staticRenderFns = [
               value: "",
               name: "amount",
             },
+            domProps: { value: _vm.amount },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.amount = $event.target.value
+              },
+            },
           }),
         ]
       ),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", [_vm._v("Amount")]),
     ])
   },
 ]

@@ -1,6 +1,6 @@
 
 <form action= "registermember" id="membershipform" method="POST">
-  
+  <div id="layoutSidenav">
   @csrf
   <div class="form-group">
     <label for="county">County </label>
@@ -100,26 +100,27 @@
     <input type="email"class="form-control form-control-sm" name ="email"  id="email"/> 
   </div>
   <hr>
-  <div class="form-group" id="layoutSidenav">
+  <div class="form-group">
     <label><strong>Expected Amount on registration</strong></label>
     <ol>
       <fees-component></fees-component>
     </ol>
   </div>
   <hr>
-  <!-- <div class="form-row justify-content-center">
+  <div class="form-row justify-content-center">
     <div class="form-group">
       <label>Amount</label>
     </div>
     <div class="form-group" style="margin-left: 3px;">
-      <input type="number" class="form-control form-control-sm" value="{{$Amount}}" name="amount">
+      <input type="number" class="form-control form-control-sm" :value="bladeValue" name="amount">
     </div>
-  </div> -->
+  </div>
   <div class ="panel-heading text-right"><h1></h1>
     <div class='text-center panel-footer align-itemes-end'>
       <input class="btn btn-primary" type="submit" value = "Save"></input>
     </div>
   </div>
+</div>  
 </form>
 <script src="{{ mix('/js/app.js') }}"></script>
 <script type ="text/javascript">

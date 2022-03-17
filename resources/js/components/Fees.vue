@@ -11,7 +11,7 @@
       <label>Amount</label>
     </div>
     <div class="form-group" style="margin-left: 3px;">
-      <input type="text" class="form-control form-control-sm" readonly="readonly" id="amount" value="" name="amount">
+      <input type="text" v-model="amount" class="form-control form-control-sm" readonly="readonly" id="amount" value="" name="amount">
     </div>
   </div>
 </div>  
@@ -22,7 +22,13 @@ import axios from 'axios';
 export default {
     data(){
         return{
-            fees: {}
+            fees: {},
+            amount: ''
+        }
+    },
+    watch: {
+        amount:function(val){
+            this.$root.bladeValue = val;
         }
     },
     methods: {
@@ -36,7 +42,6 @@ export default {
 
             }  
               document.getElementById("amount").setAttribute("value", total);
-
             //   alert("Your total is !" + total); 
                
 

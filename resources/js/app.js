@@ -39,6 +39,11 @@ Vue.component('fees-component', require('./components/Fees.vue').default);
 // Initialize Vue
 const app = new Vue({
     el: '#layoutSidenav',
+    data(){
+      return{
+        bladeValue: ''
+      }
+    }
 });
  
  
