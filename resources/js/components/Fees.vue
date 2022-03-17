@@ -26,11 +26,6 @@ export default {
             amount: ''
         }
     },
-    watch: {
-        amount:function(val){
-            this.$root.bladeValue = val;
-        }
-    },
     methods: {
         handleClick(){
             var checkboxes = document.getElementsByName("fee");  
@@ -50,6 +45,11 @@ export default {
             axios.get('api/fee').then(({data}) => {
                 this.fees = data
             })
+        }
+    },
+        watch: {
+        amount:function(val){
+            this.$root.bladeValue = total;
         }
     },
     mounted() {

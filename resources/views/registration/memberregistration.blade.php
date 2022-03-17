@@ -109,10 +109,10 @@
   <hr>
   <div class="form-row justify-content-center">
     <div class="form-group">
-      <label>Amount</label>
+      <!-- <label class="display:none;">Amount</label> -->
     </div>
-    <div class="form-group" style="margin-left: 3px;">
-      <input type="number" class="form-control form-control-sm" :value="bladeValue" name="amount">
+    <div class="form-group" style="margin-left: 3px; display:none;">
+      <input type="number" class="form-control form-control-sm" :value="bladeValue" name="amount" id="amount">
     </div>
   </div>
   <div class ="panel-heading text-right"><h1></h1>
@@ -127,7 +127,7 @@
   $('#membershipform').submit(function(e) {
     e.preventDefault();
       var form = $(this);
-      var str = "ID: "+$("#idnumber").val()+"\n"+"Name: "+$("#First_name").val()+' '+$("#Middle_card").val()+' '+$("#Last_name").val()+' '+'\n'+"Phone: "+$("#phone").val()+'\n'+"Amount:"+'\n'
+      var str = "ID: "+$("#idnumber").val()+"\n"+"Name: "+$("#First_name").val()+' '+$("#Middle_card").val()+' '+$("#Last_name").val()+' '+'\n'+"Phone: "+$("#phone").val()+'\n'+"Amount:"+$("#amount").val()+'\n'
       Swal.fire({
         title: "CONFIRM YOUR DETAILS",
         html: '<pre>' + str + '</pre>',

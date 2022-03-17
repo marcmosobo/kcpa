@@ -4185,11 +4185,6 @@ __webpack_require__.r(__webpack_exports__);
       amount: ''
     };
   },
-  watch: {
-    amount: function amount(val) {
-      this.$root.bladeValue = val;
-    }
-  },
   methods: {
     handleClick: function handleClick() {
       var checkboxes = document.getElementsByName("fee");
@@ -4208,6 +4203,11 @@ __webpack_require__.r(__webpack_exports__);
         var data = _ref.data;
         _this.fees = data;
       });
+    }
+  },
+  watch: {
+    amount: function amount(val) {
+      this.$root.bladeValue = total;
     }
   },
   mounted: function mounted() {
