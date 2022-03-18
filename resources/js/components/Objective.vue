@@ -25,7 +25,7 @@
                   </thead>
                   <tbody>
                     <tr v-for="item in objectives.data" :key="item.id">
-                      <td>{{item.title}}</td>
+                      <td>{{item.title| truncate(30,'...')}}</td>
                       <td>{{item.body}}</td>
                         <td>                                   
                             <a href="#" @click="editModal(item)">
@@ -193,10 +193,10 @@
             });            
             console.log('Component mounted.')
         },
-        // filters: {
-        //   truncate: function(text,length, suffix) {
-        //     return text.substring(0,length) + suffix;
-        //   }
-        // },        
+        filters: {
+          truncate: function(text,length, suffix) {
+            return text.substring(0,length) + suffix;
+          }
+        },        
     }
 </script>
