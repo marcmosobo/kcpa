@@ -528,13 +528,11 @@
       @foreach($team as $tim)
       <div class="col-lg-3 col-sm-6 mb-5"> 
         <figure data-aos="fade-up" data-aos-easing="linear" data-aos-delay="100">
-          @if($tim->image)
-          <img class="w-100 rounded-top" src="{{asset('uploads/'.$tim->image)}}" alt="Image Description"> 
-          @endif
+        <img class="w-100 rounded-top" src="{{asset('uploads/'.$tim->image)}}" alt="Image Description"> 
           <div class="wt-box-shadow-sm bg-white text-center rounded p-4">
             <div class="mb-3">
               <h5 class="mb-1">{{$tim->first_name}} {{$tim->last_name}}</h5>
-              <small class="d-block font-style-normal text-uppercase text-primary wt-letter-spacing-xs">{{$tim->position}}</small>
+              <small class="d-block font-style-normal text-uppercase text-primary wt-letter-spacing-xs">CHAIRMAN</small>
             </div>
             <div class="team-dp">
               <ul>
@@ -558,7 +556,7 @@
           </div> 
         </figure> 
       </div>
-  @endforeach
+      @endforeach
     </div>
   </div>
 @endif 
