@@ -4,7 +4,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">About</h3>
+                <h3 class="card-title">Objectives</h3>
 
                 <div class="card-tools" align="right">
                             <button type="button" class="btn btn-sm btn-primary" @click="newModal()">
@@ -18,21 +18,21 @@
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
-                      <th>Tagline</th>
-                      <th>Details</th>
+                      <th>Title</th>
+                      <th>Content</th>
                       <th>Modify</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="item in about.data" :key="item.id">
-                      <td>{{item.tagline| truncate(30,'...')}}</td>
-                      <td>{{item.details| truncate(30,'...')}}</td>
+                    <tr v-for="item in objectives.data" :key="item.id">
+                      <td>{{item.title}}</td>
+                      <td>{{item.body}}</td>
                         <td>                                   
                             <a href="#" @click="editModal(item)">
                                 <i class="fa fa-edit blue"></i>
                             </a>
                             /
-                            <a href="#" @click="deleteAbout(item.id)">
+                            <a href="#" @click="deleteObjective(item.id)">
                                 <i class="fa fa-trash red"></i>
                             </a>
                         </td> 
@@ -51,34 +51,28 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" v-show="!editmode">Create New About</h5>
-                    <h5 class="modal-title" v-show="editmode">Edit About</h5>
+                    <h5 class="modal-title" v-show="!editmode">Create New Objective</h5>
+                    <h5 class="modal-title" v-show="editmode">Edit Objective</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
 
-                <form @submit.prevent="editmode ? editAbout() : createAbout()">
+                <form @submit.prevent="editmode ? editObjective() : createObjective()">
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>Tagline</label>
-                            <input v-model="form.tagline" type="text" name="tagline"
-                                class="form-control" :class="{ 'is-invalid': form.errors.has('tagline') }">
-                                <div v-if="form.errors.has('tagline')" v-html="form.errors.get('tagline')" /> 
+                            <label>Title</label>
+                            <input v-model="form.title" type="text" name="title"
+                                class="form-control" :class="{ 'is-invalid': form.errors.has('title') }">
+                                <div v-if="form.errors.has('title')" v-html="form.errors.get('title')" /> 
                         </div>  
                             <div class="form-group">
-                            <label>Details</label>  
-                                    <textarea v-model="form.details" id="details"
-                                    name="details" class="form-control">
+                            <label>Content</label>  
+                                    <textarea v-model="form.body" id="body"
+                                    name="body" class="form-control">
                                     </textarea>
-                                    <div v-if="form.errors.has('details')" v-html="form.errors.get('details')" />
-                            </div>
-                        <div class="form-group">
-                            <label for="image">Feature Image</label>
-                            <div class="col-sm-12">
-                            <input type="file" @change="uploadImage" name="image" class="form-input">
-                            </div>  
-                        </div>                                                                                                                                       
+                                    <div v-if="form.errors.has('content')" v-html="form.errors.get('content')" />
+                            </div>                                                                                                                                    
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -100,33 +94,13 @@
                 editmode: false,
                 form: new Form({
                 id: '',    
-                tagline: '',
-                details: '',
-                image: ''
-                }),
-                about: {}
+                title: '',
+                body: ''
+            }),
+                objectives: {}
             }
         },
         methods: {
-                        uploadImage(element){
-            // console.log('Uploading')
-            let file = element.target.files[0];
-            let reader = new FileReader();
-            console.log(file)
-            if(file['size'] < 711177){
-            reader.onloadend = (file) => {
-              // console.log('RESULT',reader.result)
-            this.form.image = reader.result
-            }
-            reader.readAsDataURL(file);    
-            }else{
-            Swal.fire({
-              icon: 'error',
-              title: 'Large file...',
-              text: 'Please upload a smaller file'
-            })  
-            }  
-            }, 
             newModal(){
                 this.editmode = false;
                 this.form.reset();
@@ -139,14 +113,14 @@
                 $('#addNew').modal('show');
                 this.form.fill(item)
             },
-            createAbout(){
+            createObjective(){
                 this.$Progress.start();
-                this.form.post('api/about').then(() => {
+                this.form.post('api/objective').then(() => {
                     $('#addNew').modal('hide')
                     this.$Progress.finish();
                     toast.fire(
                         'Successful',
-                        'About information has been added',
+                        'Objective has been added',
                         'success'
                       );                    
                     console.log('success')
@@ -155,14 +129,14 @@
                     console.log('error')
                 })
             },
-            editAbout(){
+            editObjective(){
                 this.$Progress.start();
-                this.form.put('api/about/'+ this.form.id).then(() => {
+                this.form.put('api/objective/'+ this.form.id).then(() => {
                     $('#addNew').modal('hide')
                     this.$Progress.finish();
                     toast.fire(
                         'Successful',
-                        'About information has been updated',
+                        'Objective has been updated',
                         'success'
                       );                    
                     console.log('success')
@@ -171,7 +145,7 @@
                     console.log('error')
                 })
             },
-            deleteAbout(id){
+            deleteObjective(id){
                 this.$Progress.start();
                 Swal.fire({
                   title: 'Are you sure?',
@@ -184,11 +158,11 @@
                 }).then((result) => {
                   if (result.isConfirmed) { 
                   //send request to the server
-                  this.form.delete('api/about/'+id).then(() => {
+                  this.form.delete('api/objective/'+id).then(() => {
                   this.$Progress.finish();
                   toast.fire(
                     'Deleted!',
-                    'About information has been deleted.',
+                    'Objective has been deleted.',
                     'success'
                   )
                   Fire.$emit('Refresh');
@@ -206,23 +180,18 @@
                                    
                 }) 
         },
-        loadAbout(){
-            axios.get('api/about').then(({data}) => {
-                this.about = data
+        loadObjectives(){
+            axios.get('api/objective').then(({data}) => {
+                this.objectives = data
             })
         }
         },
         mounted() {
-            this.loadAbout();
+            this.loadObjectives();
             Fire.$on('Refresh',()=>{
-                this.loadAbout();
+                this.loadObjectives();
             });            
             console.log('Component mounted.')
-        },
-        filters: {
-          truncate: function(text,length, suffix) {
-            return text.substring(0,length) + suffix;
-          }
         },
     }
 </script>

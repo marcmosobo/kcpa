@@ -14,7 +14,9 @@ class CreateObjectivesTable extends Migration
     public function up()
     {
         Schema::create('objectives', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->string('title')->nullable();
+            $table->longText('body')->nullable();
             $table->timestamps();
         });
     }

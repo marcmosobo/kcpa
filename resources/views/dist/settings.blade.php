@@ -59,11 +59,11 @@
 
 							<div>
 								<nav class="sb-sidenav-menu-nested nav">
-									<a class="nav-link " href="amember">Members</a>
-									<a class="nav-link" href="about">About</a>
-									<a class="nav-link" href="team">Team</a>
-									<a class="nav-link" href="settings">Settings</a>
-									<a class="nav-link" href="#">Payments</a>
+								<a class="nav-link " href="amember">Members</a>
+                                    <a class="nav-link" href="objectives">Objectives</a>
+                                    <a class="nav-link" href="team">Team</a>
+                                    <a class="nav-link" href="settings">Settings</a>
+                                    <a class="nav-link" href="#">Payments</a>
 								</nav>
 							</div>
 

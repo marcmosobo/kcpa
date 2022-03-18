@@ -17,6 +17,7 @@ use App\Http\Controllers\registrationupdateController;
 use App\Http\Controllers\API\MPESAResponsesController;
 use App\Models\Team;
 use App\Models\About;
+use App\Models\Objective;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,9 +59,9 @@ return "Cleared!";
 	Route::get('/monthly', function () {return view('registration/monthly');})->middleware(['web']);
 	Route::get('/welfar', function () {	return view('registration/welfare');})->middleware(['web']);
 	Route::get('/', function () {
-		$about = About::latest()->take(1)->get();
 		$team = Team::latest()->take(4)->get();
-		return view('web/index',compact('team','about'));});
+		$objectives = Objective::latest()->take(6)->get();
+		return view('web/index',compact('team','objectives'));});
 	Route::get('/index', function () {return view('web/index');});
 	Route::get('/butere', function () {return view('web/butere');});
 	Route::get('/central', function () {return view('web/central');});
@@ -122,10 +123,11 @@ require __DIR__.'/api.php';
 Route::group(['middleware'=>['auth']], function(){
 	Route::get('/admin',[PagesController::class, 'admin']);
 	Route::get('/dashboard',[PagesController::class, 'admin']);
-	//marcus added routes
+	//dan added routes
 	Route::get('/team',[PagesController::class, 'team']);
 	Route::get('/about',[PagesController::class, 'about']);
-	//end of marcus added routes
+	Route::get('/objectives',[pagesController::class, 'objective']);
+	//end of dan added routes
 	Route::get('/settings',[settings::class, 'settings']);
 	Route::post('/settingamount',[settings::class, 'settingamount']);
 	Route::get('/adminwelfare',[PagesController::class, 'welfare']);

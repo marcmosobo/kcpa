@@ -123,41 +123,27 @@
         </div>
       </div>
       <div class="row">
+        @foreach($objectives as $objective)
         <div class="col-lg-4 mb-5 mb-lg-0 text-center" data-aos="fade-up" data-aos-easing="linear" data-aos-delay="100">
           <div class="d-block mb-4">
            <img src="img/services/lugari.svg" width="105px" class="pr-4" alt="">
          </div>
-         <h4 class="h5">Objective I</h4>
-         <p>To create HIV/Aids awareness, support and collaborate with other organizations working with the local community to combat and reduce the incidents of HIV/Aids and to support those who are infected and affected in the communities sensitizing especially the poor.</p>
+         <h4 class="h5">{{$objective->title}}</h4>
+         <p>{{$objective->body}}</p>
        </div>
-
-       <div class="col-lg-4 mb-5 mb-lg-0 text-center" data-aos="fade-up" data-aos-easing="linear" data-aos-delay="200">
-         <div class="d-block mb-4">
-           <img src="img/services/lugari.svg" width="105px" class="pr-4" alt="">
-         </div>
-         <h4 class="h5">Objective II</h4>
-         <p>To provide education to needy children through school fees, uniform and necessary learning materials and facility building</p>
-       </div>
-
-       <div class="col-lg-4 mb-5 mb-lg-0 text-center" data-aos="fade-up" data-aos-easing="linear" data-aos-delay="300">
-         <div class="d-block mb-4">
-           <img src="img/services/lugari.svg" width="105px" class="pr-4" alt="">
-         </div>
-         <h4 class="h5">Objective III</h4>
-         <p>To provide micro- Finance opportunities for needy groups through teaching sound business practices, building business plans and finding access to affordable loans to assist individuals to alleviate poverty.</p>
-       </div>
+        @endforeach
      </div>
 
      <hr class="my-5">
 
-     <div class="row">
+     <!-- <div class="row">
       <div class="col-lg-4 mb-5 mb-lg-0 text-center" data-aos="fade-up" data-aos-easing="linear" data-aos-delay="100">
        <div class="d-block mb-4">
          <img src="img/services/lugari.svg" width="105px" class="pr-4" alt="">
        </div>
        <h4 class="h5">Objective IV </h4>
        <p>T o train the community in modern agricultural/farming techniques and assist them acquire managerial skills thus improving food security.</p>
-     </div>
+      </div>
 
      <div class="col-lg-4 mb-5 mb-lg-0 text-center" data-aos="fade-up" data-aos-easing="linear" data-aos-delay="200">
       <div class="d-block mb-4">
@@ -195,13 +181,12 @@
    <h4 class="h5">Objective IX</h4>
    <p>To provide care to people living with disabilities and assist them find economic profitable enterprises and businesses and provide necessary training and empowerment to them.</p>
  </div>
-</div>
+</div> -->
 <!-- End Feature Blocks -->
 </div>
 </section>
 
 <section class="wt-section bg-light" id="about">
-  @if(count($about) == 0)
   <div class="container">
     <div class="row justify-content-md-center text-center pb-lg-4 mb-lg-5 mb-4">
       <div class="col-md-8 text-center w-md-50 mx-auto mb-0">
@@ -221,28 +206,6 @@
 
     </div>
   </div>
-  @else
-  <div class="container">
-    <div class="row justify-content-md-center text-center pb-lg-4 mb-lg-5 mb-4">
-      <div class="col-md-8 text-center w-md-50 mx-auto mb-0">
-        <h2 class="mb-md-2">About Us</h2>
-        <p class="lead text-muted">Faith and Action International is an international NGO locally registered in Kenya on 30th April 2020.</p>
-
-      </div>
-    </div>
-    <div class="row justify-content-between align-items-center" data-aos="fade-right" data-aos-easing="linear" data-aos-delay="100">
-      <div class="col-md-5">
-        <img src="img/portfolio/v4.jpg" width="90%" class="rounded-md" alt="">
-      </div>
-      <div class="col-md-7">
-        @foreach($about as $abot)
-        <p>{!! nl2br(e($abot->details)) !!}</p>
-        @endforeach
-      </div>
-
-    </div>
-  </div>
-  @endif
 </section>
 
 <!-- <section class="wt-section">

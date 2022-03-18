@@ -8,6 +8,7 @@ use App\Http\Controllers\API\AmountSettingController;
 use App\Http\Controllers\API\FeeController;
 use App\Http\Controllers\API\AboutController;
 use App\Http\Controllers\API\TeamController;
+use App\Http\Controllers\API\ObjectiveController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,5 +35,6 @@ Route::apiResources([
     'amountsetting' => AmountSettingController::class,
     'fee' => FeeController::class,
     'about' => AboutController::class,
-    'team' => TeamController::class
+    'team' => TeamController::class,
+    'objective' => ObjectiveController::class
 ]);

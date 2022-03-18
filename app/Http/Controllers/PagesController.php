@@ -22,6 +22,10 @@ class PagesController extends Controller
         return view('dist/about');
     }
     
+    public function objective(){
+        return view('dist/objective');
+    }
+
     function payment(){
         $datas = DB::table('members_account')->join('members','RegNo','=','members.id')->join('lnmo_api_response','PAYID','=','lnmo_api_response.id')->get();
     
