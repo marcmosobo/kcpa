@@ -4423,7 +4423,12 @@ __webpack_require__.r(__webpack_exports__);
       _this5.loadObjectives();
     });
     console.log('Component mounted.');
-  }
+  } // filters: {
+  //   truncate: function(text,length, suffix) {
+  //     return text.substring(0,length) + suffix;
+  //   }
+  // },        
+
 });
 
 /***/ }),

@@ -193,5 +193,10 @@
             });            
             console.log('Component mounted.')
         },
+        // filters: {
+        //   truncate: function(text,length, suffix) {
+        //     return text.substring(0,length) + suffix;
+        //   }
+        // },        
     }
 </script>
