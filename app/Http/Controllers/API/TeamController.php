@@ -31,12 +31,14 @@ class TeamController extends Controller
             'first_name' => $request->get('first_name'),
             'last_name' => $request->get('last_name'),
             'position' => $request->get('position'),
+            'image' => $request->get('image')
         ]);
         }else{
         return Team::create([
             'first_name' => $request->get('first_name'),
             'last_name' => $request->get('last_name'),
             'position' => $request->get('position'),
+            'image' => $request->get('image')
         ]);            
         }
     }
